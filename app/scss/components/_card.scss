@@ -1,21 +1,57 @@
 @use '../utilities' as *;
 .card {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  // display: grid;
+  // grid-template-columns: 1.2fr 1fr;
+  display: flex;
 
   background-color: var(--card-bg);
   font-family: var(--inter-font);
   border-radius: rem(10);
 
+  @include breakpoint-down(medium) {
+    flex-direction: column-reverse;
+
+    max-width: rem(525);
+    height: rem(779);
+    margin: rem(20);
+    overflow: hidden;
+  }
+
+  @include breakpoint-down(small) {
+    flex-direction: column-reverse;
+
+    max-width: rem(325);
+    height: rem(779);
+    margin: rem(20);
+    overflow: hidden;
+  }
+
   &__description {
+    flex-basis: 94%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: rem(67) rem(58);
+    padding: rem(67) rem(63);
+
+    @include breakpoint-down(medium) {
+      text-align: center;
+      padding: rem(40) rem(30);
+    }
+
+    @include breakpoint-down(small) {
+      justify-content: flex-start;
+      text-align: center;
+      padding: 0 rem(30);
+    }
 
     & h1 {
       font-size: rem(35);
       margin-bottom: rem(27);
+
+      @include breakpoint-down(small) {
+        font-size: rem(28);
+        // padding: 10px;
+      }
 
       & span {
         color: var(--accent-color);
@@ -23,15 +59,23 @@
     }
 
     & p {
-      margin-bottom: auto;
       line-height: 1.5;
     }
 
     & .card__stats {
       display: flex;
-      width: 80%;
+      width: 90%;
       margin-top: rem(15);
 
+      @include breakpoint-down(medium) {
+        width: 100%;
+      }
+
+      @include breakpoint-down(small) {
+        flex-direction: column;
+        margin-top: rem(35);
+        gap: 8px;
+      }
       &_item {
         flex: 1;
         text-transform: uppercase;
@@ -41,6 +85,10 @@
           font-weight: 700;
           margin-bottom: rem(13);
         }
+
+        @include breakpoint-down(small) {
+          margin: 0;
+        }
       }
     }
   }
@@ -48,15 +96,29 @@
   &__img {
     height: 100%;
     width: 100%;
-    border-radius: inherit;
+    border-radius: rem(10) rem(10) 0;
     position: relative;
-    border-radius: 0 rem(10) rem(10) 0;
+    border-radius: 0;
+
+    @include breakpoint-down(small) {
+      height: rem(237);
+      margin-bottom: rem(38);
+    }
 
     & img {
       height: 100%;
       width: 100%;
       object-fit: cover;
-      border-radius: inherit;
+      border-radius: 0 rem(10) rem(10) 0;
+
+      @include breakpoint-down(medium) {
+        border-radius: 0;
+      }
+
+      @include breakpoint-down(small) {
+        height: rem(237);
+        border-radius: 0;
+      }
     }
   }
 
@@ -69,7 +131,15 @@
 
     height: 100%;
     width: 100%;
-    border-radius: inherit;
+    border-radius: 0 rem(10) rem(10) 0;
     opacity: 0.4;
+
+    @include breakpoint-down(medium) {
+      border-radius: 0;
+    }
+
+    @include breakpoint-down(small) {
+      border-radius: 0;
+    }
   }
 }

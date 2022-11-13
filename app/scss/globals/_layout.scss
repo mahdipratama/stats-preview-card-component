@@ -17,11 +17,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @include breakpoint-down(small) {
+    height: 120vh;
+  }
 }
 
 .container {
-  // width: rem(1112);
   width: min(100% - rem(40), rem(1112));
   margin-inline: auto;
-  min-height: rem(442);
+  height: rem(442);
 }
