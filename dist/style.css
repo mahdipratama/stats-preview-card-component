@@ -27,7 +27,7 @@ body {
 
 :root {
   --inter-font: "Inter", sans-serif;
-  --deca-font: "" Lexend Deca ", sans-serif;";
+  --deca-font: " Lexend Deca", sans-serif;
 }
 
 /*
@@ -162,6 +162,7 @@ a:active {
   flex: 1;
   text-transform: uppercase;
   margin-right: 1.25rem;
+  font-family: var(--deca-font);
 }
 .card__description .card__stats_item h2 {
   font-weight: 700;
